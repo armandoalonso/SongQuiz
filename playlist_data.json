@@ -1,44 +1,44 @@
 {
-    "data" : [
-        {
-            "name": "Timeless Pop",
-            "playlist_id": "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj",
-            "thumbnails": ""
-        },
-        {
-            "name": "Love Rock",
-            "playlist_id": "PLMC9KNkIncKsPLTmkiAv6FD0A5T3CYUp5",
-            "thumbnails": ""
-        },
-        {
-            "name": "Alternative Rock",
-            "playlist_id": "PL6Lt9p1lIRZ311J9ZHuzkR5A3xesae2pk",
-            "thumbnails": ""
-        },
-        {
-            "name": "Indie Folk Rock",
-            "playlist_id": "PLOhV0FrFphUfREavNQ1a3ebZVVuUQr_47",
-            "thumbnails": ""
-        },
-        {
-            "name": "Rap 2000s",
-            "playlist_id": "PLJ2qO2-KSbEkWpeZpGg-shCvsUKQccE5P",
-            "thumbnails": ""
-        },
-        {
-            "name": "Pop Chill Vibes",
-            "playlist_id": "PL9tY0BWXOZFvN9SWiEcIKXyCjDNsL6SdY",
-            "thumbnails": ""
-        },
-        {
-            "name": "All New Indie",
-            "playlist_id": "PL9tY0BWXOZFvXYAx7RjMQd6h7_URtCwoK",
-            "thumbnails": ""
-        },
-        {
-            "name": "All New Alternative",
-            "playlist_id": "PL9tY0BWXOZFsez6cjXAxHTruW0jteUHQk",
-            "thumbnails": ""
-        }
-    ]
+	"data" : [
+		{
+			"name": "Top 10 Pop",
+			"id": "PL9tY0BWXOZFv8JKRhQtU4elLD73E3kvvo"
+		},
+		{
+			"name": "Timeless Pop",
+			"id": "PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj"
+		},
+		{
+			"name": "Love Rock",
+			"id": "PLMC9KNkIncKsPLTmkiAv6FD0A5T3CYUp5"
+		},
+		{
+			"name": "Alternative Rock",
+			"id": "PL6Lt9p1lIRZ311J9ZHuzkR5A3xesae2pk"
+		},
+		{
+			"name": "Indie Folk Rock",
+			"id": "PLOhV0FrFphUfREavNQ1a3ebZVVuUQr_47"
+		},
+		{
+			"name": "Rap 2000s",
+			"id": "PLJ2qO2-KSbEkWpeZpGg-shCvsUKQccE5P"
+		},
+		{
+			"name": "Pop Chill Vibes",
+			"id": "PL9tY0BWXOZFvN9SWiEcIKXyCjDNsL6SdY"
+		},
+		{
+			"name": "All New Alternative",
+			"id": "PL9tY0BWXOZFvXYAx7RjMQd6h7_URtCwoK"
+		},
+		{
+			"name": "All New Alt",
+			"id": "PL9tY0BWXOZFsez6cjXAxHTruW0jteUHQk"
+		},
+		{
+			"name": "Whats Hot 2022",
+			"id" : "PL9tY0BWXOZFuLUsBsTiOMJNgEX1IReALW"
+		}
+	]
 }
