@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Song Quiz"
+run/main_scene="res://scenes/loading/loading.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
+[autoload]
+
+Global="*res://autoload/Global.gd"
+SceneTransition="*res://autoload/transition/scene_transition_rect.tscn"
+YoutubeDownloader="*res://addons/godot-yt-dlp/src/yt_dlp.gd"
+YoutubeAPI="*res://autoload/youtube_api/youtube_api.tscn"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-yt-dlp/plugin.cfg")
+
+[gui]
+
+theme/custom="res://resources/theme/game_theme.tres"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.952941, 0.956863, 0.909804, 1)

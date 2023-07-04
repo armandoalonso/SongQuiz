@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://nwb3y5hrldvp"]
+
+[ext_resource type="Texture2D" uid="uid://cgytje4uv5brn" path="res://assets/design/progress_bar_forground.png" id="1_w1xf8"]
+
+[resource]
+texture = ExtResource("1_w1xf8")
+modulate_color = Color(0.596078, 0.788235, 0.501961, 1)

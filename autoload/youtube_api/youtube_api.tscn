@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chl18tq6rpmev"]
+
+[ext_resource type="Script" path="res://autoload/youtube_api/youtube_api.gd" id="1_usax5"]
+
+[node name="YoutubeAPI" type="Node"]
+script = ExtResource("1_usax5")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

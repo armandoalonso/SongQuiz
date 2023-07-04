@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scenes/game_end/game_end.gd" id="1_pokfm"]
+[ext_resource type="PackedScene" uid="uid://d30ah5swxo0o6" path="res://scenes/components/header/header.tscn" id="1_td84o"]
+[ext_resource type="Texture2D" uid="uid://to1apoprj00g" path="res://assets/design/progress_bar_background.png" id="3_mbjyk"]
+[ext_resource type="StyleBox" uid="uid://nwb3y5hrldvp" path="res://resources/theme/loading_bar_fill_style.tres" id="4_5ol8v"]
+[ext_resource type="Texture2D" uid="uid://bybcrkk6lvw23" path="res://assets/design/play_button.png" id="5_vh7ye"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yolb2"]
+texture = ExtResource("3_mbjyk")
+
+[node name="GameEnd" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pokfm")
+
+[node name="Header" parent="." instance=ExtResource("1_td84o")]
+layout_mode = 2
+header_text = "Game Over"
+
+[node name="PlayerScoreContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="RoundInfoContainer" type="HBoxContainer" parent="PlayerScoreContainer"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="PlayerScoreContainer/RoundInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.596078, 0.788235, 0.501961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Player 1"
+
+[node name="Player1Score" type="Label" parent="PlayerScoreContainer/RoundInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "30000"
+
+[node name="PlayerScoreContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="RoundInfoContainer" type="HBoxContainer" parent="PlayerScoreContainer2"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="PlayerScoreContainer2/RoundInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.596078, 0.788235, 0.501961, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Player 2"
+
+[node name="Player2Score" type="Label" parent="PlayerScoreContainer2/RoundInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "30000"
+
+[node name="Footer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Footer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LoadingBar" type="ProgressBar" parent="Footer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(520, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_yolb2")
+theme_override_styles/fill = ExtResource("4_5ol8v")
+show_percentage = false
+
+[node name="ReplayButton" type="TextureButton" parent="Footer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_vh7ye")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Footer/VBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]

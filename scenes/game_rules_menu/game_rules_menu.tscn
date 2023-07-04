@@ -1,0 +1,201 @@
+[gd_scene load_steps=15 format=3 uid="uid://c05vacs2fkt8w"]
+
+[ext_resource type="PackedScene" uid="uid://d30ah5swxo0o6" path="res://scenes/components/header/header.tscn" id="1_p4gwx"]
+[ext_resource type="Script" path="res://scenes/game_rules_menu/game_rules_menu.gd" id="1_teq7q"]
+[ext_resource type="Texture2D" uid="uid://dr36vsqls8ix2" path="res://assets/design/circle.png" id="2_osg13"]
+[ext_resource type="Texture2D" uid="uid://ctlh6yt8qespd" path="res://assets/design/progress_bar_background2.png" id="3_exfgw"]
+[ext_resource type="Texture2D" uid="uid://bybcrkk6lvw23" path="res://assets/design/play_button.png" id="6_06ngg"]
+[ext_resource type="Texture2D" uid="uid://c1safw3j6p4u7" path="res://assets/design/progress_bar_forground_green.png" id="6_henrh"]
+[ext_resource type="Theme" uid="uid://cx3ifongrjpye" path="res://resources/theme/game_theme.tres" id="6_m0p6g"]
+[ext_resource type="Texture2D" uid="uid://to1apoprj00g" path="res://assets/design/progress_bar_background.png" id="6_srchd"]
+[ext_resource type="Texture2D" uid="uid://dr42a5op5uok2" path="res://assets/design/toggle_yes.png" id="7_1bjik"]
+[ext_resource type="StyleBox" uid="uid://nwb3y5hrldvp" path="res://resources/theme/loading_bar_fill_style.tres" id="7_k7xxf"]
+[ext_resource type="Texture2D" uid="uid://b4jwcodxhpwx0" path="res://assets/design/toggle_no.png" id="8_2pxdu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jay4i"]
+content_margin_top = 30.0
+texture = ExtResource("3_exfgw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gs8k"]
+texture = ExtResource("6_henrh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wcgu"]
+texture = ExtResource("6_srchd")
+
+[node name="GameRulesMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_teq7q")
+
+[node name="Header" parent="." instance=ExtResource("1_p4gwx")]
+layout_mode = 2
+header_text = "Game Rules"
+
+[node name="GameRuleContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameRuleContainer"]
+layout_mode = 2
+
+[node name="RoundsContainer" type="HBoxContainer" parent="GameRuleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RoundsLabel" type="Label" parent="GameRuleContainer/VBoxContainer/RoundsContainer"]
+layout_mode = 2
+text = "Rounds"
+
+[node name="RoundsActive" type="Label" parent="GameRuleContainer/VBoxContainer/RoundsContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "5"
+horizontal_alignment = 2
+
+[node name="RoundsSlider" type="HSlider" parent="GameRuleContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("2_osg13")
+theme_override_icons/grabber_highlight = ExtResource("2_osg13")
+theme_override_styles/slider = SubResource("StyleBoxTexture_jay4i")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_7gs8k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_7gs8k")
+min_value = 1.0
+max_value = 20.0
+value = 5.0
+
+[node name="TimeLimitContainer" type="HBoxContainer" parent="GameRuleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLimitLabel" type="Label" parent="GameRuleContainer/VBoxContainer/TimeLimitContainer"]
+layout_mode = 2
+text = "Time Limit"
+
+[node name="TimeLimitActive" type="Label" parent="GameRuleContainer/VBoxContainer/TimeLimitContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "60"
+horizontal_alignment = 2
+
+[node name="TimeLimitSlider" type="HSlider" parent="GameRuleContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("2_osg13")
+theme_override_icons/grabber_highlight = ExtResource("2_osg13")
+theme_override_styles/slider = SubResource("StyleBoxTexture_jay4i")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_7gs8k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_7gs8k")
+min_value = 30.0
+max_value = 240.0
+step = 5.0
+value = 60.0
+
+[node name="ClipLengthContainer" type="HBoxContainer" parent="GameRuleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ClipLengthLabel" type="Label" parent="GameRuleContainer/VBoxContainer/ClipLengthContainer"]
+layout_mode = 2
+text = "Clip Length"
+
+[node name="ClipLengthActive" type="Label" parent="GameRuleContainer/VBoxContainer/ClipLengthContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "15"
+horizontal_alignment = 2
+
+[node name="ClipLengthSlider" type="HSlider" parent="GameRuleContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("2_osg13")
+theme_override_icons/grabber_highlight = ExtResource("2_osg13")
+theme_override_styles/slider = SubResource("StyleBoxTexture_jay4i")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_7gs8k")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_7gs8k")
+min_value = 10.0
+max_value = 30.0
+step = 5.0
+value = 15.0
+
+[node name="ScoreIncreaseContainer" type="HBoxContainer" parent="GameRuleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreIncreaseLabel" type="Label" parent="GameRuleContainer/VBoxContainer/ScoreIncreaseContainer"]
+layout_mode = 2
+text = "Increase Score"
+
+[node name="ScoreIncreaseToggle" type="CheckButton" parent="GameRuleContainer/VBoxContainer/ScoreIncreaseContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("6_m0p6g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_icons/checked = ExtResource("7_1bjik")
+theme_override_icons/unchecked = ExtResource("8_2pxdu")
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+
+[node name="BonusRoundContainer" type="HBoxContainer" parent="GameRuleContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BonusRoundsLabel" type="Label" parent="GameRuleContainer/VBoxContainer/BonusRoundContainer"]
+layout_mode = 2
+text = "Bonus Rounds"
+
+[node name="BonusRoundsToggle" type="CheckButton" parent="GameRuleContainer/VBoxContainer/BonusRoundContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("6_m0p6g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_icons/checked = ExtResource("7_1bjik")
+theme_override_icons/unchecked = ExtResource("8_2pxdu")
+alignment = 2
+icon_alignment = 2
+expand_icon = true
+
+[node name="Footer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Footer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="LoadingBar" type="ProgressBar" parent="Footer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(520, 30)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_3wcgu")
+theme_override_styles/fill = ExtResource("7_k7xxf")
+show_percentage = false
+
+[node name="StartButton" type="TextureButton" parent="Footer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_06ngg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="mouse_exited" from="GameRuleContainer/VBoxContainer/RoundsSlider" to="." method="_on_rounds_slider_mouse_exited"]
+[connection signal="value_changed" from="GameRuleContainer/VBoxContainer/RoundsSlider" to="." method="_on_rounds_slider_value_changed"]
+[connection signal="mouse_exited" from="GameRuleContainer/VBoxContainer/TimeLimitSlider" to="." method="_on_time_limit_slider_mouse_exited"]
+[connection signal="value_changed" from="GameRuleContainer/VBoxContainer/TimeLimitSlider" to="." method="_on_time_limit_slider_value_changed"]
+[connection signal="mouse_exited" from="GameRuleContainer/VBoxContainer/ClipLengthSlider" to="." method="_on_clip_length_slider_mouse_exited"]
+[connection signal="value_changed" from="GameRuleContainer/VBoxContainer/ClipLengthSlider" to="." method="_on_clip_length_slider_value_changed"]
+[connection signal="pressed" from="Footer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

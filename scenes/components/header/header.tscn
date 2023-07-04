@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://d30ah5swxo0o6"]
+
+[ext_resource type="Texture2D" uid="uid://dehwqp56d7q1k" path="res://assets/design/game close.png" id="1_1uvcb"]
+[ext_resource type="Script" path="res://scenes/components/header/header.gd" id="1_ksvmr"]
+[ext_resource type="Texture2D" uid="uid://cly2t1fnxakiw" path="res://assets/design/update_playlist.png" id="2_2uv5l"]
+
+[node name="Header" type="Panel"]
+custom_minimum_size = Vector2(540, 100)
+script = ExtResource("1_ksvmr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.615686, 0.811765, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.964706, 0.964706, 0.964706, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Playlist"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="UpdatePlaylistButton" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+disabled = true
+texture_normal = ExtResource("2_2uv5l")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("1_1uvcb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/UpdatePlaylistButton" to="." method="_on_update_playlist_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

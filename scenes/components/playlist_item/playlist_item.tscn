@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/components/playlist_item/playlist_item.gd" id="1_a1of8"]
+[ext_resource type="Texture2D" uid="uid://d2xyycr6eamcl" path="res://assets/design/playlist_box.png" id="1_eg05u"]
+[ext_resource type="Texture2D" uid="uid://cagdm2diahjq1" path="res://assets/design/arrow2_enabled.png" id="2_q43ek"]
+[ext_resource type="Texture2D" uid="uid://c2ws37mfqd6ka" path="res://assets/design/arrow_disabled.png" id="3_ib352"]
+
+[node name="PlaylistItem" type="MarginContainer"]
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_a1of8")
+
+[node name="PlaylistPanel" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(490, 100)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("1_eg05u")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PlaylistPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlaylistPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="PlaylistName" type="Label" parent="PlaylistPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 45
+text = "Alternative Rock"
+
+[node name="StartButton" type="TextureButton" parent="PlaylistPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+texture_normal = ExtResource("2_q43ek")
+texture_disabled = ExtResource("3_ib352")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="PlaylistPanel/MarginContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

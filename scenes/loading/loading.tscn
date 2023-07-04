@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cugjb4862ukyr"]
+
+[ext_resource type="Script" path="res://scenes/loading/loading.gd" id="1_pu0ud"]
+[ext_resource type="Theme" uid="uid://cx3ifongrjpye" path="res://resources/theme/game_theme.tres" id="2_8c8lb"]
+[ext_resource type="Texture2D" uid="uid://bs4kphq4mhidt" path="res://assets/design/title.png" id="2_ponbj"]
+[ext_resource type="Texture2D" uid="uid://to1apoprj00g" path="res://assets/design/progress_bar_background.png" id="4_lbxrj"]
+[ext_resource type="StyleBox" uid="uid://nwb3y5hrldvp" path="res://resources/theme/loading_bar_fill_style.tres" id="5_1uc10"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yoslw"]
+texture = ExtResource("4_lbxrj")
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pu0ud")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="LoadingUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 540.0
+offset_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_8c8lb")
+
+[node name="TopContainer" type="MarginContainer" parent="LoadingUI"]
+layout_mode = 2
+offset_left = 21.5
+offset_right = 518.5
+offset_bottom = 598.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="TitleImage" type="TextureRect" parent="LoadingUI/TopContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("2_ponbj")
+stretch_mode = 3
+
+[node name="BottomContainer" type="VBoxContainer" parent="LoadingUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MessageLabel" type="Label" parent="LoadingUI/BottomContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.980392, 0.313726, 0.415686, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="MarginContainer" type="MarginContainer" parent="LoadingUI/BottomContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="LoadingBar" type="ProgressBar" parent="LoadingUI/BottomContainer/MarginContainer"]
+custom_minimum_size = Vector2(520, 30)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxTexture_yoslw")
+theme_override_styles/fill = ExtResource("5_1uc10")
+show_percentage = false
