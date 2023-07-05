@@ -3,15 +3,22 @@ extends VBoxContainer
 @export var game_scene: PackedScene = preload("res://scenes/game/game.tscn")
 @export var game_over_scene: PackedScene = preload("res://scenes/game_end/game_end.tscn")
 
+#label
 @onready var answer_label: Label = $AnswerLabel
+#toggles
 @onready var correct_artist_toggle = $CorrectArtistMargin/CorrectArtistToggle
 @onready var correct_song_toggle = $CorrectSongMargin/CorrectSongToggle
+#button
+@onready var next_turn_button = $Footer/HBoxContainer/NextTurnButton
+
+
 
 func _ready():
 	SceneTransition.fade_out()
 	answer_label.text = Global.get_current_song_title()
 
 func _on_next_turn_button_pressed():
+	next_turn_button.disabled = true
 	Global.add_score_to_current_player(correct_song_toggle.button_pressed, correct_artist_toggle.button_pressed)
 	Global.next_turn()
 	

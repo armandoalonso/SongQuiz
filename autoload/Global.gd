@@ -34,6 +34,7 @@ var game_over = false
 var player_one_score = 0
 var player_two_score = 0
 
+
 func set_game_data(round_length: int, time_limit: int, clip_length: int, increase_score: bool, bonus_rounds: bool):
 	randomize()
 	self.round_length = round_length
@@ -49,6 +50,7 @@ func set_game_data(round_length: int, time_limit: int, clip_length: int, increas
 	current_player = player_one_name
 	
 	current_round = 1
+	base_score = 10
 	current_song_index = 0
 	player_one_score = 0
 	player_two_score = 0
@@ -57,7 +59,6 @@ func set_game_data(round_length: int, time_limit: int, clip_length: int, increas
 	game_over = false
 	
 	generate_random_songs(round_length * 2, 10)
-	#download_random_songs(round_length * 2)
 
 
 func generate_random_songs(count: int, backup_buffer: int):
@@ -177,10 +178,12 @@ func get_current_song_title() -> String:
 	song = "\n".join(song_parts)
 	return song
 
+
 func get_current_song_url() -> String:
 	var song = current_songs[current_song_index]["id"]
 	var url = "https://www.youtube.com/watch?v=" + song
 	return url
+
 
 func increase_current_song_index():
 	current_song_index = current_song_index + 1
@@ -227,6 +230,13 @@ func add_score_to_current_player(correct_song: bool, correct_artist: bool):
 	elif current_player == player_two_name:
 		player_two_score = player_two_score + song_points + artist_points  
 
+
+func get_available_score_text() -> String:
+	if is_bonus_round():
+		return "+" + str(base_score) + " x2"
+	else:
+		return "+" + str(base_score)
+	
 
 func get_current_player_score() -> int:
 	if current_player == player_one_name:

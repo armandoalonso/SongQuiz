@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://buicbwkndr0tp"]
 
 [ext_resource type="Script" path="res://scenes/components/playlist_item/playlist_item.gd" id="1_a1of8"]
 [ext_resource type="Texture2D" uid="uid://d2xyycr6eamcl" path="res://assets/design/playlist_box.png" id="1_eg05u"]

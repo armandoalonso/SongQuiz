@@ -13,8 +13,11 @@ func _ready():
 
 func _on_value_changed(value):
 	# using linear scale 0-1
-	#AudioServer.set_bus_volume_db(_bus, linear_to_db(value))
-	AudioServer.set_bus_volume_db(_bus, value)
+	if(value < -11):
+		var zero_volume = linear_to_db(0)
+		AudioServer.set_bus_volume_db(_bus, zero_volume)
+	else:
+		AudioServer.set_bus_volume_db(_bus, value)
 
 func _on_mouse_exited():
 	self.release_focus()

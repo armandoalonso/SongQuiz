@@ -36,6 +36,14 @@ func create_playlist_item(name: String, id: String):
 	instance.set_data(name, id)
 
 func on_playlist_selected(name: String, id: String):
+	#disable all playlist buttons
+	next_button.disabled = true
+	previous_button.disabled = true
+	
+	# TODO: disable playlis buttons
+	for item in playlist_container.get_children():
+		item.disable_start_button()
+	
 	print("playlist clicked " + name)
 	Global.current_playlist_id = id;
 	YoutubeAPI.get_playlist_videos(id)

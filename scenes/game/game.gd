@@ -7,7 +7,6 @@ extends VBoxContainer
 @onready var audio_stream_player_2d := $AudioStreamPlayer2D as AudioStreamPlayer2D
 @onready var buzzer_audio_player := $BuzzerAudioPlayer as AudioStreamPlayer2D
 @onready var audio_visualizer_container = $AudioVisualizerContainer
-
 #labels
 @onready var active_player := $"GameScreen/VBoxContainer/RoundInfoContainer/Active PlayerLabel" as Label
 @onready var active_round := $GameScreen/VBoxContainer/RoundInfoContainer/ActiveRoundLabel as Label
@@ -34,11 +33,9 @@ func _ready():
 	active_player.text = Global.current_player
 	active_round.text = "Round " + str(Global.current_round)
 	player_score_label.text = "Score " + str(Global.get_current_player_score())
-	score_multipler_label.visible = false
+	score_multipler_label.text = Global.get_available_score_text()
 	audio_visualizer_container.visible = false
 	
-	if Global.is_bonus_round():
-		score_multipler_label.visible = true
 	
 	Global.download_current_song()
 	var attempts = 0

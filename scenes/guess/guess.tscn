@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://csyobx6dnfxej"]
 
-[ext_resource type="Script" path="res://scenes/guess/guess.gd" id="1_8o3g8"]
+[ext_resource type="Script" path="res://scenes/guess/guess.gd" id="1_lqxft"]
 [ext_resource type="PackedScene" uid="uid://d30ah5swxo0o6" path="res://scenes/components/header/header.tscn" id="2_721et"]
 [ext_resource type="Theme" uid="uid://cx3ifongrjpye" path="res://resources/theme/game_theme.tres" id="3_algii"]
 [ext_resource type="Texture2D" uid="uid://dr42a5op5uok2" path="res://assets/design/toggle_yes.png" id="4_03wbr"]
@@ -15,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource("1_8o3g8")
+script = ExtResource("1_lqxft")
 
 [node name="Header" parent="." instance=ExtResource("2_721et")]
 layout_mode = 2
